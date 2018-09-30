@@ -21,5 +21,14 @@ namespace HelloWPFApp {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            if (RadioButton1.IsChecked == true) {
+                MessageBox.Show("Hello.");
+            } else {
+                RadioButton2.IsChecked = true;
+                MessageBox.Show("Goodbye.");
+            }
+        }
     }
 }
