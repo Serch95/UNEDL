@@ -17,7 +17,7 @@ namespace SegundParcial {
             GenerarTXT();
         }
 
-        string rutaCompleta = @" C:\Users\Sergio\Desktop\SegundParcial.txt";        
+        string rutaCompleta = @" C:\Users\Sergio\Desktop\SegundParcial.txt";
         List<int> lista = new List<int>();
         List<String> tiempo = new List<String>();
 
@@ -34,9 +34,9 @@ namespace SegundParcial {
             return dateTime.ToString(culture);
         }
 
-        void EscribirArchivo() {            
+        void EscribirArchivo() {
             using (StreamWriter file = new StreamWriter(rutaCompleta, true)) {
-                for (int i = 0; i < lista.Count - 1; i++) {
+                for (int i = 0; i < lista.Count; i++) {
                     file.Write(lista[i] + " - ");
                     file.WriteLine(tiempo[i]);
                 }
@@ -60,8 +60,13 @@ namespace SegundParcial {
         }
 
         private void Agregar_Click(object sender, EventArgs e) {
-            lista.Add(Convert.ToInt32(Numeros.Text));
-            tiempo.Add(getFecha());
+            try {
+                lista.Add(Convert.ToInt32(Numeros.Text));
+                tiempo.Add(getFecha());
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
             Numeros.Text = "";
             MetodoBurbuja();
 
@@ -80,6 +85,10 @@ namespace SegundParcial {
 
         private void Mostrar_Click(object sender, EventArgs e) {
             MostrarArchivo();
+            for (int i = 0; i < lista.Count; i++) {
+                MessageBox.Show(Convert.ToString(lista[i]));
+            }
+
         }
 
         private void EArchivo_Click(object sender, EventArgs e) {
