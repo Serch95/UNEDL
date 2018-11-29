@@ -14,16 +14,34 @@ namespace SegundParcial {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
-            GenerarTXT();
+            Agregar.Visible = false;
+            Mostrar.Visible = false;
+            EArchivo.Visible = false;
         }
 
-        string rutaCompleta = @" C:\SegundParcial.txt";
+        string rutaCompleta;
         List<int> lista = new List<int>();
         List<String> tiempo = new List<String>();
 
+        public void ruta() {
+            rutaCompleta = textBox1.Text;
+            GenerarTXT();
+        }
+               
         void GenerarTXT() {
-            using (StreamWriter mylogs = File.AppendText(rutaCompleta)) {
-                mylogs.Close();
+            bool flag = true;
+            try {
+                using (StreamWriter mylogs = File.AppendText(rutaCompleta)) {
+                    mylogs.Close();
+                }
+            }catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                flag = false;
+            }
+            if (flag) {
+                Agregar.Visible = true;
+                Mostrar.Visible = true;
+                EArchivo.Visible = true;
             }
         }
 
@@ -35,27 +53,37 @@ namespace SegundParcial {
         }
 
         void EscribirArchivo() {
-            using (StreamWriter file = new StreamWriter(rutaCompleta, true)) {
-                for (int i = 0; i < lista.Count; i++) {
-                    file.Write(lista[i] + " - ");
-                    file.WriteLine(tiempo[i]);
+            try {
+                using (StreamWriter file = new StreamWriter(rutaCompleta, true)) {
+                    for (int i = 0; i < lista.Count; i++) {
+                        file.Write(lista[i] + " - ");
+                        file.WriteLine(tiempo[i]);
+                    }
+                    file.WriteLine();
+                    file.Close();
                 }
-                file.WriteLine();
-                file.Close();
+            }catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
 
-        }
+}
 
         void MostrarArchivo() {
             string line = "";
             String message = "";
-            using (StreamReader file = new StreamReader(rutaCompleta)) {
-                while ((line = file.ReadLine()) != null) {
-                    message += line + "\n";
-                }
-                MessageBox.Show(message); ;
+            try {
 
-                file.Close();
+
+                using (StreamReader file = new StreamReader(rutaCompleta)) {
+                    while ((line = file.ReadLine()) != null) {
+                        message += line + "\n";
+                    }
+                    MessageBox.Show(message); ;
+
+                    file.Close();
+                }
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -93,6 +121,11 @@ namespace SegundParcial {
 
         private void EArchivo_Click(object sender, EventArgs e) {
             EscribirArchivo();
+        }
+
+        private void btnRuta_Click(object sender, EventArgs e) {
+            ruta();
+
         }
     }
 }
