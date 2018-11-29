@@ -17,7 +17,7 @@ namespace SegundParcial {
             GenerarTXT();
         }
 
-        string rutaCompleta = @" C:\Users\Sergio\Desktop\SegundParcial.txt";
+        string rutaCompleta = @" C:\SegundParcial.txt";
         List<int> lista = new List<int>();
         List<String> tiempo = new List<String>();
 
