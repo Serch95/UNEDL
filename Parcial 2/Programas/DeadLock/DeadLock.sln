@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLock", "DeadLock\DeadLock.csproj", "{58783390-F316-4C82-BB67-5F55A2A873CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58783390-F316-4C82-BB67-5F55A2A873CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58783390-F316-4C82-BB67-5F55A2A873CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58783390-F316-4C82-BB67-5F55A2A873CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58783390-F316-4C82-BB67-5F55A2A873CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBF17BAD-6763-4964-B0BD-4DDE58039A75}
+	EndGlobalSection
+EndGlobal
